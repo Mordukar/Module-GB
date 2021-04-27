@@ -17,18 +17,21 @@ module.exports = {
       // 2
       filename: "[name].css", // 3
     }),
+    new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
       { test: /\\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
       {
         test: /\.mp3$/,
-        loader: "file-loader",
-        options: {
-          name: "[name].[ext]",
-          outputPath: "./src/audio/",
-          publicPath: "./src/audio/",
-        },
+        use: [
+          {
+              loader: 'file-loader',
+              options: {
+                  name: '[path][name].[ext]',
+              },
+          },
+      ],
       },
       {
         test: /\\.s[ac]ss$/i,
