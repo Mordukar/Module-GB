@@ -27,7 +27,3 @@ function loadScript(url, callback = callback) {
     }
   }
 }
-
-let a = [5, 10, 20];
-
-console.log(typeof a);
